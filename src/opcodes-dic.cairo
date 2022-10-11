@@ -7,7 +7,7 @@ from starkware.cairo.lang.compiler.lib.registers import get_ap, get_fp_and_pc
 from starkware.cairo.common.registers import get_label_location
 from starkware.cairo.common.dict_access import DictAccess
 from starkware.cairo.common.squash_dict import squash_dict
-
+from starkware.cairo.common.dict.cairo import dict_read
 
 
 
@@ -41,20 +41,20 @@ func build_dict(
     );
 }
 
-func dict_read{dict_ptr: DictAccess*}(key: felt) -> (value: felt) {
-    alloc_locals;
-    local value;
-    %{
-        dict_tracker = __dict_manager.get_tracker(ids.dict_ptr)
-        dict_tracker.current_ptr += ids.DictAccess.SIZE
-        ids.value = dict_tracker.data[ids.key]
-    %}
-    dict_ptr.key = key;
-    dict_ptr.prev_value = value;
-    dict_ptr.new_value = value;
-    let dict_ptr = dict_ptr + DictAccess.SIZE;
-    return (value=value);
-}
+// func dict_read{dict_ptr: DictAccess*}(key: felt) -> (value: felt) {
+//     alloc_locals;
+//     local value;
+//     %{
+//         dict_tracker = __dict_manager.get_tracker(ids.dict_ptr)
+//         dict_tracker.current_ptr += ids.DictAccess.SIZE
+//         ids.value = dict_tracker.data[ids.key]
+//     %}
+//     dict_ptr.key = key;
+//     dict_ptr.prev_value = value;
+//     dict_ptr.new_value = value;
+//     let dict_ptr = dict_ptr + DictAccess.SIZE;
+//     return (value=value);
+// }
 
 
 
