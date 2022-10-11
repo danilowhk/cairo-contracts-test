@@ -10,6 +10,7 @@ from starkware.cairo.common.squash_dict import squash_dict
 from starkware.cairo.common.dict.cairo import dict_read
 
 
+// Call the opcode given a hex value
 
 func callOpcode{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr}(hex: felt, n_args: felt, args: felt*)){
     let func_pc: codeoffset = dict_read(hex);
@@ -18,6 +19,8 @@ func callOpcode{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr}(
     return();
 }
 
+
+// Build the opcodes Dict
 func build_dict(
     hex_list: felt*,
     opcodes_list: codeoffset*,
@@ -30,7 +33,7 @@ func build_dict(
 
     assert dict.key = [hex_list];
 
-    assert dict.prev_value = opcodes_list;
+    // assert dict.prev_value = opcodes_list;
     assert dict.new_value = opcodes_list;
 
     return build_dict(
