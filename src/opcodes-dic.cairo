@@ -15,442 +15,436 @@ func callOpcode{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr}(
 }
 
 
-// func invoke(func_ptr: felt*, n_args: felt, args: felt*) {
-//     invoke_prepare_args(args_end=args + n_args, n_args=n_args);
-//     call abs func_ptr;
-//     ret;
+// func get_label_location(label_value: codeoffset) -> (res: felt*) {
+//     let (_, pc_val) = get_fp_and_pc();
+
+//     ret_pc_label:
+//     return() (res=pc_val + (label_value - ret_pc_label));
 // }
-
-func get_label_location(label_value: codeoffset) -> (res: felt*) {
-    let (_, pc_val) = get_fp_and_pc();
-
-    ret_pc_label:
-    return (res=pc_val + (label_value - ret_pc_label));
-}
 
 
 
 
 func STOP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 0;
-    return;
+    return();
 }
 
 func ADD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func MUL{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5;
-    return;
+    return();
 }
 
 func SUB{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func DIV{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5;
-    return;
+    return();
 }
 
 func SDIV{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5;
-    return;
+    return();
 }
 
 func MOD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5;
-    return;
+    return();
 }
 
 func SMOD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 8;
-    return;
+    return();
 }
 
 func ADDMOD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 8;
-    return;
+    return();
 }
 
 func MULMOD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 8;
-    return;
+    return();
 }
 
 func EXP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 8;
-    return;
+    return();
 }
 
 func EXP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 10;
-    return;
+    return();
 }
 
 func SIGNEXTEND{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5;
-    return;
+    return();
 }
 
 func LT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func GT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SLT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SGT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func EQ{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func ISZERO{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func AND{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func OR{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func XOR{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func NOT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func BYTE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SHL{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SHR{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SAR{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SHA3{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 30;
-    return;
+    return();
 }
 
 
 func ADDRESS{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 
 func BALANCE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 400;
-    return;
+    return();
 }
 
 
 func ORIGIN{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func CALLER{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 
 func CALLVALUE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 
 func CALLDATALOAD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func CALLDATASIZE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func CALLDATACOPY{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func CODESIZE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func CODECOPY{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func GASPRICE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func EXTCODESIZE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 func EXTCODECOPY{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
-func RETURNDATASIZE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
+func return()DATASIZE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
-func RETURNDATACOPY{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
+func return()DATACOPY{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func EXTCODEHASH{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 400;
-    return;
+    return();
 }
 
 func BLOCKHASH{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 20;
-    return;
+    return();
 }
 
 func COINBASE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func TIMESTAMP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func NUMBER{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func DIFFICULTY{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func GASLIMIT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func POP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func MLOAD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func MSTORE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func MSTORE8{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3l
-    return;
+    return();
 }
 
 
 func SLOAD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 200;
-    return;
+    return();
 }
 
 
 func SSTORE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 0;
-    return;
+    return();
 }
 
 func JUMP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 8;
-    return;
+    return();
 }
 
 func JUMPI{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 10;
-    return;
+    return();
 }
 
 func PC{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func MSIZE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func GAS{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 func JUMPDEST{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 1;
-    return;
+    return();
 }
 
 func PUSH{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func DUP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 func SWAP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 3;
-    return;
+    return();
 }
 
 
 func LOG{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 275;
-    return;
+    return();
 }
 
 func CREATE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 32000;
-    return;
+    return();
 }
 
 func CALL{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 
 func CALLCODE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 
-func RETURN{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
+func return(){syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 0;
-    return;
+    return();
 }
 
 func DELEGATECALL{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 
 func CREATE2{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 32000;
-    return;
+    return();
 }
 
 
 func STATICCALL{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 
 func REVERT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 0;
-    return;
+    return();
 }
 
 func INVALID{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 0;
-    return;
+    return();
 }
 
 
 func SELFDESTRUCT{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5000;
-    return;
+    return();
 }
 
 
 func BALANCE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 func EXTCODEHASH{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 700;
-    return;
+    return();
 }
 
 
 func CHAINID{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 2;
-    return;
+    return();
 }
 
 
 func SELFBALANCE{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 5;
-    return;
+    return();
 }
 
 func SLOAD{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 800;
-    return;
+    return();
 }
 
 
