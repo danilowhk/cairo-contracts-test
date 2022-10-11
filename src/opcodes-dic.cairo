@@ -2,6 +2,34 @@
 
 from starkware.cairo.common.cairo_builtints import HashBuiltin
 from starkware.starknet.syscall_ptr import get_caller_address
+from starkware.cairo.common.invoke import invoke
+from starkware.cairo.lang.compiler.lib.registers import get_ap, get_fp_and_pc
+from starkware.cairo.common.registers import get_label_location
+
+
+
+func callOpcode{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr}(function: codeoffset, n_args: felt, args: felt*)){
+    let (func_pc) = get_label_location(label_value);
+    invoke(func_pc,n_args,args);
+    return();
+}
+
+
+// func invoke(func_ptr: felt*, n_args: felt, args: felt*) {
+//     invoke_prepare_args(args_end=args + n_args, n_args=n_args);
+//     call abs func_ptr;
+//     ret;
+// }
+
+func get_label_location(label_value: codeoffset) -> (res: felt*) {
+    let (_, pc_val) = get_fp_and_pc();
+
+    ret_pc_label:
+    return (res=pc_val + (label_value - ret_pc_label));
+}
+
+
+
 
 func STOP{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr} (stack: felt*, value: felt){
     let fee = 0;
