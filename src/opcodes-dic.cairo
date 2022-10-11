@@ -5,23 +5,56 @@ from starkware.starknet.syscall_ptr import get_caller_address
 from starkware.cairo.common.invoke import invoke
 from starkware.cairo.lang.compiler.lib.registers import get_ap, get_fp_and_pc
 from starkware.cairo.common.registers import get_label_location
+from starkware.cairo.common.dict_access import DictAccess
+from starkware.cairo.common.squash_dict import squash_dict
 
 
 
-func callOpcode{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr}(function: codeoffset, n_args: felt, args: felt*)){
+
+func callOpcode{syscall_ptr: felt*, pedersen_ptr:HashBuiltin*, range_check_ptr}(hex: felt, n_args: felt, args: felt*)){
+    let func_pc: codeoffset = dict_read(hex);
     let (func_pc) = get_label_location(label_value);
     invoke(func_pc,n_args,args);
     return();
 }
 
+func build_dict(
+    hex_list: felt*,
+    opcodes_list: codeoffset*,
+    n_steps,
+    dict: DictAccess*,
+) -> (dict: DictAccess*) {
+    if (n_steps == 0) {
+        return (dict=dict);
+    }
 
-// func get_label_location(label_value: codeoffset) -> (res: felt*) {
-//     let (_, pc_val) = get_fp_and_pc();
+    assert dict.key = [hex_list];
 
-//     ret_pc_label:
-//     return() (res=pc_val + (label_value - ret_pc_label));
-// }
+    assert dict.prev_value = opcodes_list;
+    assert dict.new_value = opcodes_list;
 
+    return build_dict(
+        hex_list= hex_list + 1,
+        opcodes_list=opcodes_list + 1,
+        n_steps=n_steps - 1,
+        dict=dict + DictAccess.SIZE,
+    );
+}
+
+func dict_read{dict_ptr: DictAccess*}(key: felt) -> (value: felt) {
+    alloc_locals;
+    local value;
+    %{
+        dict_tracker = __dict_manager.get_tracker(ids.dict_ptr)
+        dict_tracker.current_ptr += ids.DictAccess.SIZE
+        ids.value = dict_tracker.data[ids.key]
+    %}
+    dict_ptr.key = key;
+    dict_ptr.prev_value = value;
+    dict_ptr.new_value = value;
+    let dict_ptr = dict_ptr + DictAccess.SIZE;
+    return (value=value);
+}
 
 
 
